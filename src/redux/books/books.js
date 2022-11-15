@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 // Action Types
-const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
-const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
+const ADDED_BOOK = 'ADDED_BOOK';
+const REMOVED_BOOK = 'REMOVED_BOOK';
 
 // Initial State
 const initialState = [
@@ -11,6 +11,7 @@ const initialState = [
     author: 'Suzanne Collins',
     category: 'Action',
     completed: 64,
+    currentLesson: 'Chapter 17',
   },
   {
     item_id: uuidv4(),
@@ -18,6 +19,7 @@ const initialState = [
     author: 'Frank Herbert',
     category: 'Science Fiction',
     completed: 8,
+    currentLesson: 'Chapter 3: "A Lesson Learned"',
   },
   {
     item_id: uuidv4(),
@@ -25,6 +27,7 @@ const initialState = [
     author: 'Suzanne Collins',
     category: 'Economy',
     completed: 0,
+    currentLesson: 'Introduction',
   },
 ];
 
@@ -41,21 +44,22 @@ const reducer = (state = initialState, action) => {
 };
 
 // Action Creators
-const addBook = (bookTitle, bookAuthor, bookCategory) => ({
+const addBook = (obj) => ({
   type: ADDED_BOOK,
   payload: {
     item_id: uuidv4(),
-    title: bookTitle,
-    author: bookAuthor,
-    category: bookCategory,
+    title: obj.title,
+    author: obj.author,
+    category: obj.category,
     completed: Math.floor(Math.random() * 100),
+    currentLesson: `Chapter ${Math.floor(Math.random() * 15)}`,
   },
 });
 
 const remBook = (bookID) => ({
   type: REMOVED_BOOK,
   payload: {
-    test_id: bookID,
+    item_id: bookID,
   },
 });
 

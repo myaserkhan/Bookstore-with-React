@@ -24,7 +24,12 @@ function Form() {
 
   const checkValidity = () => {
     if (!bookTitle || !bookCategory || !bookCategory) return;
-    dispatch(addBook(bookTitle, bookAuthor, bookCategory));
+    const bookObj = {
+      title: bookTitle,
+      author: bookAuthor,
+      category: bookCategory,
+    };
+    dispatch(addBook(bookObj));
     setBookTitle('');
     setBookAuthor('');
     setBookCategory('');

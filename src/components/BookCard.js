@@ -52,9 +52,7 @@ function BookCard({ book }) {
           Current Chapter
         </span>
         <span className="currentLesson">
-          Chapter
-          {' '}
-          {Math.floor(Math.random() * 10)}
+          {book.currentLesson}
         </span>
         <span className="updateProgress">
           Update progress
@@ -71,6 +69,7 @@ BookCard.propTypes = {
     author: PropTypes.string,
     category: PropTypes.string,
     completed: PropTypes.number,
+    currentLesson: PropTypes.string,
   }).isRequired,
 };
 
