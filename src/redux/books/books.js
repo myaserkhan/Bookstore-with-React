@@ -41,12 +41,13 @@ const reducer = (state = initialState, action) => {
 };
 
 // Action Creators
-const addBook = () => ({
+const addBook = (bookTitle, bookAuthor, bookCategory) => ({
   type: ADDED_BOOK,
   payload: {
     item_id: uuidv4(),
-    title: 'bookTitle',
-    author: 'bookAuthor',
+    title: bookTitle,
+    author: bookAuthor,
+    category: bookCategory,
     completed: Math.floor(Math.random() * 100),
   },
 });
