@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Progress } from 'antd';
 // import '../scss/BookCard.scss';
 
 function BookCard({ book }) {
   return (
     <section className="bookCardWrapper">
       <div className="bookCardContainer">
-        <span className="genre">{book.genre}</span>
+        <span className="genre">{book.category}</span>
         <span className="title">{book.title}</span>
         <span className="author">{book.author}</span>
         <div className="options">
@@ -22,26 +22,18 @@ function BookCard({ book }) {
       </div>
       <div className="progressContainer">
         <div className="progressCircle">
-          <div className="outer">
-            <div className="inner" />
-          </div>
-          <svg
-            className="svgCircle"
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            width="80px"
-            height="80px"
-          >
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stopColor="#307bbe" />
-                <stop offset="100%" stopColor="#379cf6" />
-              </linearGradient>
-            </defs>
-            <circle cx="40" cy="40" r="37.5" strokeLinecap="round" />
-          </svg>
+          <Progress
+            type="circle"
+            width={80}
+            format={() => ''}
+            strokeColor={{
+              '0%': '#307bbe',
+              '100%': '#379cf6',
+            }}
+            trailColor="#e8e8e8"
+            percent={book.completed}
+          />
         </div>
-
         <div className="progressPercent">
           <span className="percentComplete">
             {`${book.completed}%`}
@@ -57,7 +49,7 @@ function BookCard({ book }) {
           Current Chapter
         </span>
         <span className="currentLesson">
-          {book.currentLesson}
+          Chapter 01
         </span>
         <span className="updateProgress">
           Update progress
@@ -72,9 +64,8 @@ BookCard.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
-    genre: PropTypes.string,
-    completed: PropTypes.string,
-    currentLesson: PropTypes.string,
+    category: PropTypes.string,
+    completed: PropTypes.number,
   }).isRequired,
 };
 

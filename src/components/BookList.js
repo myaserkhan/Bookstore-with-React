@@ -10,7 +10,7 @@ function BookList(props) {
   } = props;
   return (
     <div className="bookListContainer">
-      {books.map((book) => <BookCard key={book.id} book={book} />)}
+      {books.map((book) => <BookCard key={book.item_id} book={book} />)}
     </div>
   );
 }
@@ -18,11 +18,11 @@ function BookList(props) {
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      item_id: PropTypes.string,
       title: PropTypes.string,
       author: PropTypes.string,
-      genre: PropTypes.string,
-      completed: PropTypes.string,
+      category: PropTypes.string,
+      completed: PropTypes.number,
     }),
   ).isRequired,
 };
