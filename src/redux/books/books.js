@@ -10,21 +10,21 @@ const initialState = [
     title: 'The Hunger Games',
     author: 'Suzanne Collins',
     category: 'Action',
-    completed: '64',
+    completed: 64,
   },
   {
     item_id: uuidv4(),
     title: 'Dune',
     author: 'Frank Herbert',
     category: 'Science Fiction',
-    completed: '8',
+    completed: 8,
   },
   {
     item_id: uuidv4(),
     title: 'Capital in the Twenty-First Century',
     author: 'Suzanne Collins',
     category: 'Economy',
-    completed: '0',
+    completed: 0,
   },
 ];
 
