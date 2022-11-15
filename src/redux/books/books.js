@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 // Action Types
 const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
 const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
@@ -11,7 +13,7 @@ const reducer = (state = initialState, action) => {
     case ADDED_BOOK:
       return [...state, action.payload];
     case REMOVED_BOOK:
-      return [...state.filter((el) => el.id !== action.payload.id)];
+      return [...state.filter((el) => el.payload.item_id !== action.payload.item_id)];
     default:
       return state;
   }
@@ -21,7 +23,7 @@ const reducer = (state = initialState, action) => {
 const addBook = () => ({
   type: ADDED_BOOK,
   payload: {
-    id: 'bookId',
+    item_id: uuidv4(),
     title: 'bookTitle',
     author: 'bookAuthor',
   },
@@ -30,7 +32,7 @@ const addBook = () => ({
 const remBook = () => ({
   type: REMOVED_BOOK,
   payload: {
-    id: 'bookID',
+    test_id: 'bookID',
   },
 });
 
