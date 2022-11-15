@@ -8,6 +8,11 @@ function BookList(props) {
   const {
     books,
   } = props;
+  const headerStyle = {
+    color: '#888',
+    textAlign: 'center',
+  };
+  if (!books.length) return <h1 style={headerStyle}>There are no books to view.</h1>;
   return (
     <div className="bookListContainer">
       {books.map((book) => <BookCard key={book.item_id} book={book} />)}
