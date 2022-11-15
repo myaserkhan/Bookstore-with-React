@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-
 // Action Types
 const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
 const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
@@ -48,6 +47,7 @@ const addBook = () => ({
     item_id: uuidv4(),
     title: 'bookTitle',
     author: 'bookAuthor',
+    completed: Math.floor(Math.random() * 100),
   },
 });
 
