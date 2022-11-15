@@ -15,7 +15,7 @@ function Header() {
           <span className="books">BOOKS</span>
         </NavLink>
         <NavLink
-          to="/categories"
+          to="categories"
           className={(isActive) => `nav-link${!isActive ? ' unselected' : ''}`}
         >
           <span className="categories">CATEGORIES</span>
