@@ -9,25 +9,31 @@ const initialState = [];
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDED_BOOK:
-      return [...state, action.book];
+      return [...state, action.payload];
     case REMOVED_BOOK:
-      return [...state.filter((book) => book.id !== action.book.id)];
+      return [...state.filter((el) => el.id !== action.payload.id)];
     default:
       return state;
   }
 };
 
 // Action Creators
-const addedBook = (book) => ({
+const addBook = () => ({
   type: ADDED_BOOK,
-  book,
+  payload: {
+    id: 'bookId',
+    title: 'bookTitle',
+    author: 'bookAuthor',
+  },
 });
 
-const removedBook = (book) => ({
+const remBook = () => ({
   type: REMOVED_BOOK,
-  book,
+  payload: {
+    id: 'bookID',
+  },
 });
 
 // Exports
-export { addedBook, removedBook };
+export { addBook, remBook };
 export default reducer;
