@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 // import '../scss/Categories.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkingStatus } from '../redux/categories/categories';
 
 function Categories() {
-  const [status, setStatus] = useState('');
-
-  const handleClick = () => {
-    setStatus('Page Under Construction');
-  };
+  const status = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
 
   const antIcon = (
     <LoadingOutlined
@@ -23,7 +22,7 @@ function Categories() {
     <>
       <div className="container">
         <Spin indicator={antIcon} />
-        <button type="button" className="statusBtn" onClick={handleClick}>
+        <button type="button" className="statusBtn" onClick={() => dispatch(checkingStatus())}>
           Check status
         </button>
         <span className="statusMsg">
