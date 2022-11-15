@@ -5,7 +5,29 @@ const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
 const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
 
 // Initial State
-const initialState = [];
+const initialState = [
+  {
+    item_id: uuidv4(),
+    title: 'The Hunger Games',
+    author: 'Suzanne Collins',
+    category: 'Action',
+    completed: '64',
+  },
+  {
+    item_id: uuidv4(),
+    title: 'Dune',
+    author: 'Frank Herbert',
+    category: 'Science Fiction',
+    completed: '8',
+  },
+  {
+    item_id: uuidv4(),
+    title: 'Capital in the Twenty-First Century',
+    author: 'Suzanne Collins',
+    category: 'Economy',
+    completed: '0',
+  },
+];
 
 // Reducer
 const reducer = (state = initialState, action) => {
