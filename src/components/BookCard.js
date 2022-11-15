@@ -57,7 +57,7 @@ function BookCard({ book }) {
           Current Chapter
         </span>
         <span className="currentLesson">
-          Chapter 17
+          {book.currentLesson}
         </span>
         <span className="updateProgress">
           Update progress
@@ -74,6 +74,7 @@ BookCard.propTypes = {
     author: PropTypes.string,
     genre: PropTypes.string,
     completed: PropTypes.string,
+    currentLesson: PropTypes.string,
   }).isRequired,
 };
 

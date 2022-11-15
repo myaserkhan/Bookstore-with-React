@@ -12,6 +12,7 @@ function Home() {
       author: 'Suzanne Collins',
       genre: 'Action',
       completed: '64',
+      currentLesson: 'Chapter 17',
     },
     {
       id: uuidv4(),
@@ -19,6 +20,7 @@ function Home() {
       author: 'Frank Herbert',
       genre: 'Science Fiction',
       completed: '8',
+      currentLesson: 'Chapter 3: "A Lesson Learned"',
     },
     {
       id: uuidv4(),
@@ -26,6 +28,7 @@ function Home() {
       author: 'Suzanne Collins',
       genre: 'Economy',
       completed: '0',
+      currentLesson: 'Introduction',
     },
   ];
   return (
