@@ -1,5 +1,5 @@
 // Action Types
-const CHECKING_STATUS = 'bookstore/categories/CHECKING_STATUS';
+const CHECKING_STATUS = 'CHECKING_STATUS';
 
 // Initial State
 const initialState = [];
