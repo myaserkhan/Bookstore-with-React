@@ -1,33 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 // Initial State
-const initialState = [
-  {
-    item_id: uuidv4(),
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    category: 'Action',
-    completed: 64,
-    currentLesson: 'Chapter 17',
-  },
-  {
-    item_id: uuidv4(),
-    title: 'Dune',
-    author: 'Frank Herbert',
-    category: 'Science Fiction',
-    completed: 8,
-    currentLesson: 'Chapter 3: "A Lesson Learned"',
-  },
-  {
-    item_id: uuidv4(),
-    title: 'Capital in the Twenty-First Century',
-    author: 'Suzanne Collins',
-    category: 'Economy',
-    completed: 0,
-    currentLesson: 'Introduction',
-  },
-];
+const initialState = [];
+
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/juyEYeKeTge7d2ZVOxXe/books';
+
+// Async Action Creators
+export const fetchBookApi = createAsyncThunk('fetchBookApi', async () => {
+  const response = await axios.get(url);
+  return response.data;
+});
 
 // Slice Reducer
 const booksSlice = createSlice({
@@ -35,7 +19,7 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook: {
-      reducer: (state, action) => [...state, action.payload],
+      reducer: (state, action) => [action.payload],
       prepare: (value) => ({
         payload: {
           ...value,
@@ -45,7 +29,21 @@ const booksSlice = createSlice({
         },
       }),
     },
-    delBook: (state, action) => [...state.filter((el) => el.item_id !== action.payload)],
+    delBook: (state, action) => [
+      ...state.filter((el) => el.item_id !== action.payload),
+    ],
+  },
+  extraReducers: {
+    [fetchBookApi.fulfilled]: (state, action) => {
+      const books = Object.keys(action.payload)
+        .map((el) => ({
+          item_id: el,
+          completed: Math.floor(Math.random() * 100),
+          currentLesson: `Chapter ${Math.floor(Math.random() * 15)}`,
+          ...action.payload[el][0],
+        }));
+      return [books];
+    },
   },
 });
 
