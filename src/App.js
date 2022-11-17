@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Books from './pages/Books';
 import Categories from './pages/Categories';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="categories" element={<Categories />} />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
