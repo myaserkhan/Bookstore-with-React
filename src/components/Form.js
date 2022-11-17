@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBookApi } from '../redux/books/booksSlice';
-// import '../scss/Form.scss';
+import '../scss/Form.scss';
 
 function Form() {
   const [bookTitle, setBookTitle] = useState('');

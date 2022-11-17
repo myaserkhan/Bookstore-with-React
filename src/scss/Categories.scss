@@ -1,0 +1,45 @@
+@import './App.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 10rem auto;
+}
+
+.statusBtn {
+  display: block;
+  margin: 1rem auto 0 auto;
+  width: 11.5rem;
+  height: 2.063rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border-radius: 3px;
+  background-color: $clr-azure;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $clr-white;
+  cursor: pointer;
+}
+
+.statusMsg {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 3px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $clr-black-two;
+}

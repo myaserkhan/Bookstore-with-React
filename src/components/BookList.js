@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import '../scss/BookList.scss';
+import '../scss/BookList.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import BookCard from './BookCard';
 import { fetchBookApi } from '../redux/books/booksSlice';

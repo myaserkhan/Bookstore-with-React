@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
-// import '../scss/Header.scss';
+import '../scss/Header.scss';
 
 function Header() {
   return (
