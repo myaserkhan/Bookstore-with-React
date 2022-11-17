@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Progress } from 'antd';
 import { useDispatch } from 'react-redux';
 import { delBookApi } from '../redux/books/booksSlice';
-// import '../scss/BookCard.scss';
+import '../scss/BookCard.scss';
 
 function BookCard({ book }) {
   const dispatch = useDispatch();

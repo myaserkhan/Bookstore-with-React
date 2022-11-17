@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-// import '../scss/Categories.scss';
+import '../scss/Categories.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkingStatus } from '../redux/categories/categoriesSlice';
 

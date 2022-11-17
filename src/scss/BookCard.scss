@@ -1,0 +1,378 @@
+@import './App.scss';
+
+.bookCardWrapper {
+  display: grid;
+  grid-template-areas: "book progress status";
+  grid-template-columns: 2fr 1fr 1fr;
+  border-radius: 4px;
+  border: solid 1px $clr-grey-border;
+  background-color: $clr-white;
+  margin: 1rem 0.5rem;
+  padding: 1rem;
+}
+
+.bookCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  grid-area: book;
+}
+
+.category {
+  margin: 0 2.438rem 0 0;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.5rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-black-two;
+}
+
+.title {
+  margin: 0.188rem 5rem 0 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: $clr-black-two;
+}
+
+.author {
+  margin: 0.25rem 0 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.5rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-cool-blue;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  margin: 0.188rem 0.5rem 0.125rem 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.5rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-cool-blue;
+  margin-top: 0.5rem;
+
+  .comments {
+    margin-right: 0.25rem;
+  }
+
+  .remove,
+  .edit {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .remove {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: $clr-cool-blue;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.progressContainer {
+  display: flex;
+  flex-direction: row;
+  grid-area: progress;
+}
+
+.progressCircle {
+  display: none;
+}
+
+.progressPercent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.percentComplete {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-black-two;
+}
+
+.completed {
+  width: 5rem;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.5rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-black-two;
+}
+
+.line2 {
+  display: none;
+  margin: 1rem 0;
+  border: solid 1px $clr-grey-border;
+}
+
+.progressStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-area: status;
+  padding: 0.5rem 0;
+}
+
+.currentChapter {
+  opacity: 0.5;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.5rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $clr-black-two;
+}
+
+.currentLesson {
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.5rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: $clr-black-two;
+}
+
+.updateProgress {
+  margin: 0.75rem 0;
+  padding: 0.25rem;
+  border-radius: 3px;
+  background-color: $clr-azure;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.5rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $clr-white;
+  cursor: pointer;
+}
+
+// Desktop Version
+@media screen and (min-width: 768px) {
+  .bookCardWrapper {
+    display: grid;
+    grid-template-areas: "book progress status";
+    grid-template-columns: 2fr 1fr 1fr;
+    border-radius: 4px;
+    border: solid 1px $clr-grey-border;
+    background-color: $clr-white;
+    margin: 1rem 4rem;
+    padding: 1rem;
+  }
+
+  .bookCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    grid-area: book;
+  }
+
+  .category {
+    margin: 0 2.438rem 0 0;
+    opacity: 0.5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-black-two;
+  }
+
+  .title {
+    margin: 0.188rem 5rem 0 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.375rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: $clr-black-two;
+  }
+
+  .author {
+    margin: 0.25rem 0 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-cool-blue;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    margin: 0.188rem 0.938rem 0.125rem 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-cool-blue;
+    margin-top: 1rem;
+
+    .comments {
+      margin-right: 1rem;
+    }
+
+    .remove,
+    .edit {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .progressContainer {
+    display: flex;
+    flex-direction: row;
+    grid-area: progress;
+  }
+
+  .progressCircle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .progressPercent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .percentComplete {
+    height: 2.438rem;
+    margin: 0.063rem 5.75rem 0 0.688rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-black-two;
+  }
+
+  .completed {
+    width: 5rem;
+    height: 1.125rem;
+    margin: 0.438rem 4.938rem 0.75rem 0.75rem;
+    opacity: 0.5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-black-two;
+  }
+
+  .line2 {
+    margin: 1rem 0;
+    border: solid 1px $clr-grey-border;
+  }
+
+  .progressStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: auto;
+    grid-area: status;
+  }
+
+  .currentChapter {
+    opacity: 0.5;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.813rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $clr-black-two;
+  }
+
+  .currentLesson {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    color: $clr-black-two;
+  }
+
+  .updateProgress {
+    width: 11.5rem;
+    height: 2.063rem;
+    margin: 0.75rem 0 0.563rem;
+    padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+    border-radius: 3px;
+    background-color: $clr-azure;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.813rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: $clr-white;
+    cursor: pointer;
+  }
+}
