@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Progress } from 'antd';
 import { useDispatch } from 'react-redux';
-import { delBook } from '../redux/books/booksSlice';
+import { delBookApi } from '../redux/books/booksSlice';
 // import '../scss/BookCard.scss';
 
 function BookCard({ book }) {
   const dispatch = useDispatch();
+
   return (
     <section className="bookCardWrapper">
       <div className="bookCardContainer">
@@ -17,7 +18,15 @@ function BookCard({ book }) {
           <span className="comments">Comments</span>
           {' '}
           |
-          <button type="button" className="remove" onClick={() => dispatch(delBook(book.id))}>Remove</button>
+          <button
+            type="button"
+            className="remove"
+            onClick={() => {
+              dispatch(delBookApi(book.item_id));
+            }}
+          >
+            Remove
+          </button>
           {' '}
           |
           <span className="edit">Edit</span>
@@ -64,7 +73,7 @@ function BookCard({ book }) {
 
 BookCard.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string,
+    item_id: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
     category: PropTypes.string,

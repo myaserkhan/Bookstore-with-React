@@ -13,26 +13,25 @@ export const fetchBookApi = createAsyncThunk('fetchBookApi', async () => {
   return response.data;
 });
 
+export const addBookApi = createAsyncThunk('addBookApi', async (input) => {
+  const response = await axios.post(url, {
+    item_id: uuidv4(),
+    title: input.title,
+    author: input.author,
+    category: input.category,
+  });
+  return response.data;
+});
+
+export const delBookApi = createAsyncThunk('delBookApi', async (input) => {
+  const response = await axios.delete(`${url}/${input}`);
+  return response.data;
+});
+
 // Slice Reducer
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-    addBook: {
-      reducer: (state, action) => [action.payload],
-      prepare: (value) => ({
-        payload: {
-          ...value,
-          item_id: uuidv4(),
-          completed: Math.floor(Math.random() * 100),
-          currentLesson: `Chapter ${Math.floor(Math.random() * 15)}`,
-        },
-      }),
-    },
-    delBook: (state, action) => [
-      ...state.filter((el) => el.item_id !== action.payload),
-    ],
-  },
   extraReducers: {
     [fetchBookApi.fulfilled]: (state, action) => {
       const books = Object.keys(action.payload)
@@ -44,8 +43,10 @@ const booksSlice = createSlice({
         }));
       return [books];
     },
+    [addBookApi.fulfilled]: (state, action) => [...state, action.payload],
+    // eslint-disable-next-line
+    [delBookApi.fulfilled]: (state, action) => [...state.filter((el) => el.item_id !== action.payload.item_id)],
   },
 });
 
-export const { addBook, delBook } = booksSlice.actions;
 export default booksSlice.reducer;
