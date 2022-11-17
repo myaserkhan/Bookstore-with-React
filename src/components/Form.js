@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { addBookApi } from '../redux/books/booksSlice';
 // import '../scss/Form.scss';
 
 function Form() {
@@ -29,7 +29,7 @@ function Form() {
       author: bookAuthor,
       category: bookCategory,
     };
-    dispatch(addBook(bookObj));
+    dispatch(addBookApi(bookObj));
     setBookTitle('');
     setBookAuthor('');
     setBookCategory('');
